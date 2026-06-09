@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
   import { drugList } from '$lib/data/drugData';
   import type { Drug } from '$lib/types/drug';
   import type { DoseResult, AutoDoseResult, ManualDoseResult } from '$lib/types/calculation';
@@ -8,6 +9,7 @@
   const STORAGE_KEY = 'pedi-dose:lastDrugId';
 
   function loadSavedDrugId(): number {
+    if (!browser) return drugList[0].id;
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved !== null && drugList.some((d) => d.id === Number(saved))) {
       return Number(saved);
@@ -25,7 +27,9 @@
   );
 
   $effect(() => {
-    localStorage.setItem(STORAGE_KEY, String(selectedDrugId));
+    if (browser) {
+      localStorage.setItem(STORAGE_KEY, String(selectedDrugId));
+    }
   });
 
   let result: DoseResult | null = $derived.by(() => {
