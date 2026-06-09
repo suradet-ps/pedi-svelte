@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+  background-color: var(--color-canvas);
+  transition: background-color var(--t), color var(--t);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  letter-spacing: normal;
+}
+
+input,
+select,
+button,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+}
+
+::selection {
+  background-color: var(--color-electric-blue);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-electric-blue);
+  outline-offset: 2px;
+}
+
+a.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--sp-3);
+  z-index: 100;
+  padding: var(--sp-2) var(--sp-3);
+  background-color: var(--color-electric-blue);
+  color: #ffffff;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  border-radius: var(--r);
+  text-decoration: none;
+}
+
+a.skip-link:focus {
+  top: var(--sp-2);
+}
