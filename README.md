@@ -12,21 +12,21 @@
 
 ---
 
-**Pedi-Svelte** (เดิม Pedi-Dose) เป็น progressive web application (PWA) ที่ช่วยให้เภสัชกร แพทย์ และบุคลากรทางการแพทย์คำนวณขนาดยาน้ำเด็กได้อย่างรวดเร็วและแม่นยำ คำนวณช่วงขนาดยาทั้งหน่วยมิลลิลิตร (ml) และมิลลิกรัมต่อโดส (mg/dose) ตามน้ำหนักผู้ป่วย พร้อมคำแนะนำการบริหารยาสำหรับยาแต่ละชนิด
+**Pedi-Svelte** is a progressive web application (PWA) that helps pharmacists, doctors, and healthcare professionals calculate pediatric liquid medication dosages quickly and accurately. It computes dose ranges in both milliliters (ml) and milligrams per dose (mg/dose) based on patient weight, with administration guidance for every drug.
 
 ---
 
 ## Features
 
-- **Real-time calculation** — ผลลัพธ์อัปเดตทันทีขณะพิมพ์หรือเลือกยา ไม่ต้องกดปุ่ม submit
-- **Dual-unit display** — ผลหลักใน **ml** พร้อมค่า **mg/dose** รอง
-- **Manual dose mode** — ระบุขนาด mg/kg/dose เองแทนช่วงมาตรฐาน
-- **Mobile-first UI** — ออกแบบเพื่อใช้งานบนมือถือ ติดตั้งเป็น PWA ได้
-- **Offline capable** — ใช้งานได้โดยไม่ต้องเชื่อมต่ออินเทอร์เน็ตหลังจากเข้าชมครั้งแรก
-- **Persistent selection** — จดจำยาที่เลือกล่าสุดผ่าน `localStorage`
-- **Dark mode** — เปลี่ยนตามระบบ `prefers-color-scheme` โดยอัตโนมัติ
-- **Accessible** — คีย์บอร์ดนำทาง, screen-reader friendly, visible focus indicators
-- **11 pre-loaded drugs** — ครอบคลุมยาปฏิชีวนะ ยาลดไข้ ยาแก้แพ้ และอื่นๆ สำหรับเด็ก
+- **Real-time calculation** — results update instantly as you type or select a drug; no submit button required.
+- **Dual-unit display** — primary result in **ml** with **mg/dose** secondary value.
+- **Manual dose mode** — override the standard range by specifying a custom mg/kg/dose value.
+- **Mobile-first UI** — optimized for on-the-go clinical use, installable as a PWA.
+- **Offline capable** — fully functional without a network connection after first visit.
+- **Persistent selection** — last-used drug is remembered via `localStorage`.
+- **Dark mode** — automatically follows the system `prefers-color-scheme` setting.
+- **Accessible** — keyboard navigable, screen-reader friendly, visible focus indicators.
+- **11 pre-loaded drugs** — covers common pediatric antibiotics, antipyretics, antihistamines, bronchodilators, and more.
 
 ---
 
@@ -37,7 +37,7 @@
 | **Language** | [TypeScript 5](https://www.typescriptlang.org/) (strict mode, no unchecked access) |
 | **Framework** | [Svelte 5](https://svelte.dev/) (runes API: $state, $derived, $effect) |
 | **Meta-framework** | [SvelteKit 2](https://kit.svelte.dev/) (file-based routing, adapter-static) |
-| **Build tool** | [Vite 6](https://vite.dev/) (ผ่าน SvelteKit) |
+| **Build tool** | [Vite 6](https://vite.dev/) (via SvelteKit) |
 | **PWA** | [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) (Workbox, generateSW) |
 | **Linting** | [ESLint 9](https://eslint.org/) (flat config, type-aware, Svelte plugin) |
 | **Formatting** | [Prettier](https://prettier.io/) + prettier-plugin-svelte |
@@ -145,7 +145,7 @@ pedi-svelte/
 
 ## Svelte 5 Architecture
 
-This project uses Svelte 5 **runes** for all state management — no React hooks, no stores:
+This project uses Svelte 5 **runes** for all state management — no React hooks, no stores, no legacy patterns:
 
 - **`$state()`** — local reactive state (`weight`, `selectedDrugId`, `isManualMode`, `manualDose`)
 - **`$derived()`** — computed values (`selectedDrug` from `selectedDrugId`)
@@ -159,6 +159,7 @@ Key improvements over the original React architecture:
 - No class-based ErrorBoundary — replaced by SvelteKit's `+error.svelte`
 - No prop drilling — state is co-located in `+page.svelte` with callback props
 - Compile-time reactivity — less runtime overhead, smaller bundle
+- All state is local — no global stores needed for a single-page calculator
 
 ---
 
@@ -166,7 +167,7 @@ Key improvements over the original React architecture:
 
 This project prioritizes strict type safety:
 
-- **`strict: true`** — all strict checks enabled (noImplicitAny, strictNullChecks, etc.)
+- **`strict: true`** — all strict checks enabled (`noImplicitAny`, `strictNullChecks`, etc.)
 - **`noUncheckedIndexedAccess`** — every array/record access is safe by default
 - **`exactOptionalPropertyTypes`** — no accidental `undefined` assignments
 - **`verbatimModuleSyntax`** — enforces `import type` for type-only imports
