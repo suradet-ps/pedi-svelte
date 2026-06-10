@@ -25,6 +25,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "noEmit": true,
+    "paths": {
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.svelte", "svelte.d.ts"],
   "extends": "./.svelte-kit/tsconfig.json"
