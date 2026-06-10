@@ -17,7 +17,7 @@ node_modules
 dist
 dist-ssr
 dev-dist
-.svelte-kit/output
+.svelte-kit
 *.local
 
 # Editor directories and files
