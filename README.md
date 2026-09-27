@@ -1,13 +1,12 @@
 # Pedi-Svelte
 
-```
-██████╗ ███████╗██████╗ ██╗ ██████╗██╗   ██╗███████╗██╗     ████████╗███████╗
-██╔══██╗██╔════╝██╔══██╗██║██╔════╝██║   ██║██╔════╝██║     ╚══██╔══╝██╔════╝
-██████╔╝█████╗  ██║  ██║██║███████╗██║   ██║█████╗  ██║        ██║   █████╗
-██╔═══╝ ██╔══╝  ██║  ██║██║╚════██║╚██╗ ██╔╝██╔══╝  ██║        ██║   ██╔══╝
-██║     ███████╗██████╔╝██║██████╔╝ ╚████╔╝ ███████╗███████╗   ██║   ███████╗
-╚═╝╚══════╝╚═════╝ ╚═╝╚═════╝  ╚═══╝╚══════╝╚══════╝   ╚═╝╚══════╝
-```
+[![CI](https://github.com/suradet-ps/pedi-svelte/actions/workflows/ci.yml/badge.svg)](https://github.com/suradet-ps/pedi-svelte/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Svelte v5](https://img.shields.io/badge/Svelte-v5-FF3E00.svg?logo=svelte&logoColor=white)](https://svelte.dev/)
+[![SvelteKit v2](https://img.shields.io/badge/SvelteKit-v2-FF3E00.svg?logo=svelte&logoColor=white)](https://svelte.dev/docs/kit)
+[![TypeScript v5](https://img.shields.io/badge/TypeScript-v5-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8.svg?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/suradet-ps/pedi-svelte/issues)
 
 ---
 
